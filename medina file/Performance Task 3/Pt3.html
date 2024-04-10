@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Task 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div>
+        <table>
+            <tbody>
+                <!--25 Text boxes--> <tr>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                    <td><input class="digit" type="number"><span class="indicator"></span></td>
+                </tr>
+                <div class="visual">
+                    <input type="text" id="display" readonly>
+                </div>
+            </tbody>
+        </table>
+        <button type="button" onclick="calc()">CALCULATE</button>
+    </div>
+<script>
+    function calc() {
+            let inputs = document.getElementsByClassName('digit');
+            let sumEven = 0;
+            let sumOdd = 0;
+            for (let i = 0; i < inputs.length; i++) {
+                let value = parseInt(inputs[i].value);
+                if (!isNaN(value)) {
+                    if (value % 2 === 0) {
+                        sumEven += value;
+                        inputs[i].nextElementSibling.textContent = " even";
+                    } else {
+                        sumOdd += value;
+                        inputs[i].nextElementSibling.textContent = " odd";
+                    }
+                } else {
+                    inputs[i].nextElementSibling.textContent = "";
+                }
+            }
+            let resultDiv = document.getElementById('display');
+            resultDiv.value = "Sum of even numbers: " + sumEven + ". Sum of odd numbers: " + sumOdd + ".";
+    }
+</script>
+</body>
+</html>
